@@ -1,0 +1,101 @@
+{
+ "actions": [],
+ "allow_rename": 1,
+ "autoname": "patient.###",
+ "creation": "2026-01-30 15:29:17.362627",
+ "doctype": "DocType",
+ "engine": "InnoDB",
+ "field_order": [
+  "patient_name",
+  "gender",
+  "dob",
+  "age",
+  "phone",
+  "email"
+ ],
+ "fields": [
+  {
+   "fieldname": "patient_name",
+   "fieldtype": "Data",
+   "label": "Patient Name"
+  },
+  {
+   "fieldname": "gender",
+   "fieldtype": "Select",
+   "label": "Gender",
+   "options": "Male\nFemale\nOthers"
+  },
+  {
+   "fieldname": "dob",
+   "fieldtype": "Date",
+   "label": "Date of Birth"
+  },
+  {
+   "fieldname": "age",
+   "fieldtype": "Int",
+   "label": "Age",
+   "read_only": 1
+  },
+  {
+   "fieldname": "phone",
+   "fieldtype": "Phone",
+   "label": "Phone"
+  },
+  {
+   "fieldname": "email",
+   "fieldtype": "Data",
+   "label": "Email"
+  }
+ ],
+ "grid_page_length": 50,
+ "index_web_pages_for_search": 1,
+ "links": [],
+ "modified": "2026-01-31 22:17:51.617509",
+ "modified_by": "Administrator",
+ "module": "hospital_management",
+ "name": "Patient",
+ "naming_rule": "Expression",
+ "owner": "Administrator",
+ "permissions": [
+  {
+   "create": 1,
+   "delete": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "System Manager",
+   "share": 1,
+   "write": 1
+  },
+  {
+   "read": 1,
+   "role": "Doctor"
+  },
+  {
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "role": "Patient"
+  },
+  {
+   "create": 1,
+   "email": 1,
+   "export": 1,
+   "print": 1,
+   "read": 1,
+   "report": 1,
+   "role": "Receptionist",
+   "share": 1,
+   "write": 1
+  }
+ ],
+ "row_format": "Dynamic",
+ "rows_threshold_for_grid_search": 20,
+ "show_title_field_in_link": 1,
+ "sort_field": "modified",
+ "sort_order": "DESC",
+ "states": [],
+ "title_field": "patient_name"
+}
