@@ -42,38 +42,41 @@
 // });
 
 frappe.ui.form.on("Appointment", {
-    validate(frm) {
+    validate: async function (frm) {
 
-        // Mandatory fields check
+        // Mandatory check
         if (!frm.doc.doctor || !frm.doc.appointment_date || !frm.doc.from_time || !frm.doc.to_time) {
             return;
         }
 
-        return frappe.db.get_list("Appointment", {
+        const records = await frappe.db.get_list("Appointment", {
             filters: {
                 doctor: frm.doc.doctor,
                 appointment_date: frm.doc.appointment_date,
                 docstatus: ["!=", 2]
             },
-            fields: ["name", "from_time", "to_time"],
-            limit: 100
-        }).then(records => {
-
-            for (let appt of records) {
-
-                // Skip current document while editing
-                if (appt.name === frm.doc.name) continue;
-
-                // Overlap condition
-                if (
-                    frm.doc.from_time < appt.to_time &&
-                    frm.doc.to_time > appt.from_time
-                ) {
-                    frappe.throw(
-                        __("This doctor already has an appointment during the selected time.")
-                    );
-                }
-            }
+            fields: ["name", "from_time", "to_time"]
         });
+
+        for (let appt of records) {
+
+            // Skip same document while editing
+            if (appt.name === frm.doc.name) continue;
+
+            // Overlap check
+            if (
+                frm.doc.from_time < appt.to_time &&
+                frm.doc.to_time > appt.from_time
+            ) {
+                frappe.msgprint({
+                    title: __("Overlapping Appointment"),
+                    message: __("This doctor already has an appointment during the selected time."),
+                    indicator: "red"
+                });
+
+                frappe.validated = false; // ⛔ stop save
+                return;
+            }
+        }
     }
 });

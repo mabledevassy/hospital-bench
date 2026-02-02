@@ -16,7 +16,10 @@
 #     medical.insert(ignore_permissions=True)
 
 import frappe
+
 from frappe import _
+
+
 
 def create_medical_record(doc, method):
     # Do NOT create medical record if appointment is cancelled
@@ -43,7 +46,7 @@ def create_medical_record(doc, method):
             "notes": ""
         }]
     })
-
+    medical.insert(ignore_permissions=True)
     patient_name = frappe.db.get_value(
     "Patient",
     doc.patient,
@@ -54,10 +57,7 @@ def create_medical_record(doc, method):
     _("{}'s Medical Record is created successfully").format(patient_name),
     indicator="green",
     title="Medical Record Created"
-    )
-
-
-
+    )   
 
 
 
