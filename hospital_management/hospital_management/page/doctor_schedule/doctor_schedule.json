@@ -1,0 +1,19 @@
+{
+ "content": null,
+ "creation": "2026-02-03 09:40:40.644905",
+ "docstatus": 0,
+ "doctype": "Page",
+ "idx": 0,
+ "modified": "2026-02-03 09:40:40.644905",
+ "modified_by": "Administrator",
+ "module": "hospital_management",
+ "name": "doctor-schedule",
+ "owner": "Administrator",
+ "page_name": "doctor-schedule",
+ "roles": [],
+ "script": null,
+ "standard": "Yes",
+ "style": null,
+ "system_page": 0,
+ "title": "Doctor Schedule"
+}
