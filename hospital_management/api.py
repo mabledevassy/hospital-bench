@@ -16,8 +16,8 @@
 #     medical.insert(ignore_permissions=True)
 
 import frappe
-
 from frappe import _
+from frappe.utils import nowdate, nowtime
 
 
 
@@ -77,3 +77,31 @@ def get_patient_appointments(patient):
         ],
         order_by="appointment_date desc"
     )
+
+
+
+
+
+
+
+# def auto_complete_appointments():
+#     today = nowdate()
+#     current_time = nowtime()
+
+#     appointments = frappe.get_all(
+#         "Appointment",
+#         filters={
+#             "status": "Scheduled",
+#             "appointment_date": ["<=", today]
+#         },
+#         fields=["name", "appointment_date", "to_time"]
+#     )
+
+#     for appt in appointments:
+#         if appt.appointment_date < today or current_time > appt.to_time:
+#             frappe.db.set_value(
+#                 "Appointment",
+#                 appt.name,
+#                 "status",
+#                 "Completed"
+#             )

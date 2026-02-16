@@ -5,7 +5,7 @@
    "label": "Daily Appointments"
   }
  ],
- "content": "[{\"id\":\"x86t1FeNbv\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hospital Management</span>\",\"col\":12}},{\"id\":\"d2xLi9QLMx\",\"type\":\"paragraph\",\"data\":{\"text\":\"Welcome to the Hospital Management System.Manage&nbsp; patients,doctors,appointments and medical records efficiently.\",\"col\":12}},{\"id\":\"bCD3RJQ5qH\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kOKFq_qiaY\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Number Cards</b></span>\",\"col\":12}},{\"id\":\"rX00wT-zjB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Patients\",\"col\":4}},{\"id\":\"3r-m15NIfA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Doctors\",\"col\":4}},{\"id\":\"E0JC-NaAOX\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today's Appointments\",\"col\":4}},{\"id\":\"6pnoYGt164\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kJ_wB7Vady\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts</b></span>\",\"col\":12}},{\"id\":\"z5Mjj_chqL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Patient\",\"col\":3}},{\"id\":\"ZuICo1EdOz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Doctor\",\"col\":3}},{\"id\":\"zOcX2rfUoB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Book Appointmment\",\"col\":3}},{\"id\":\"U7ZYZRkYRf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Doctor Schedule\",\"col\":3}},{\"id\":\"7HAj74W7WQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"rj7hQelOWh\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Charts</b></span>\",\"col\":12}},{\"id\":\"73VasOyRxS\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Daily Appointments\",\"col\":12}}]",
+ "content": "[{\"id\":\"x86t1FeNbv\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\">Hospital Management</span>\",\"col\":12}},{\"id\":\"d2xLi9QLMx\",\"type\":\"paragraph\",\"data\":{\"text\":\"Welcome to the Hospital Management System.Manage&nbsp; patients,doctors,appointments and medical records efficiently.\",\"col\":12}},{\"id\":\"bCD3RJQ5qH\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kOKFq_qiaY\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Number Cards</b></span>\",\"col\":12}},{\"id\":\"rX00wT-zjB\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Patients\",\"col\":4}},{\"id\":\"3r-m15NIfA\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Total Doctors\",\"col\":4}},{\"id\":\"E0JC-NaAOX\",\"type\":\"number_card\",\"data\":{\"number_card_name\":\"Today's Appointments\",\"col\":4}},{\"id\":\"6pnoYGt164\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"kJ_wB7Vady\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Shortcuts</b></span>\",\"col\":12}},{\"id\":\"z5Mjj_chqL\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Patient\",\"col\":3}},{\"id\":\"ZuICo1EdOz\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Add Doctor\",\"col\":3}},{\"id\":\"zOcX2rfUoB\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Book Appointmment\",\"col\":3}},{\"id\":\"U7ZYZRkYRf\",\"type\":\"shortcut\",\"data\":{\"shortcut_name\":\"Doctor Schedule\",\"col\":3}},{\"id\":\"7HAj74W7WQ\",\"type\":\"spacer\",\"data\":{\"col\":12}},{\"id\":\"Ivf2WjCoyi\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Quick Lists</b></span>\",\"col\":12}},{\"id\":\"4kWLZFzJgz\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Today's Appointment\",\"col\":4}},{\"id\":\"ubh0q_83x3\",\"type\":\"quick_list\",\"data\":{\"quick_list_name\":\"Pending Appiontments\",\"col\":4}},{\"id\":\"rj7hQelOWh\",\"type\":\"header\",\"data\":{\"text\":\"<span class=\\\"h4\\\"><b>Charts</b></span>\",\"col\":12}},{\"id\":\"73VasOyRxS\",\"type\":\"chart\",\"data\":{\"chart_name\":\"Daily Appointments\",\"col\":12}}]",
  "creation": "2026-02-01 21:18:50.826302",
  "custom_blocks": [],
  "docstatus": 0,
@@ -18,7 +18,7 @@
  "is_hidden": 0,
  "label": "Hospital Management",
  "links": [],
- "modified": "2026-02-03 09:57:32.859091",
+ "modified": "2026-02-03 13:58:08.713575",
  "modified_by": "Administrator",
  "module": "hospital_management",
  "name": "Hospital Management",
@@ -39,7 +39,18 @@
  "owner": "Administrator",
  "parent_page": "",
  "public": 1,
- "quick_lists": [],
+ "quick_lists": [
+  {
+   "document_type": "Appointment",
+   "label": "Today's Appointment",
+   "quick_list_filter": "[[\"Appointment\",\"appointment_date\",\"Timespan\",\"today\",false]]"
+  },
+  {
+   "document_type": "Appointment",
+   "label": "Pending Appiontments",
+   "quick_list_filter": "[[\"Appointment\",\"status\",\"=\",\"Scheduled\",false],[\"Appointment\",\"appointment_date\",\"Timespan\",\"this week\",false],[\"Appointment\",\"docstatus\",\"=\",\"1\",false]]"
+  }
+ ],
  "roles": [],
  "sequence_id": 1.0,
  "shortcuts": [

@@ -147,21 +147,11 @@ doc_events = {
 # ---------------
 
 # scheduler_events = {
-# 	"all": [
-# 		"hospital_management.tasks.all"
-# 	],
-# 	"daily": [
-# 		"hospital_management.tasks.daily"
-# 	],
-# 	"hourly": [
-# 		"hospital_management.tasks.hourly"
-# 	],
-# 	"weekly": [
-# 		"hospital_management.tasks.weekly"
-# 	],
-# 	"monthly": [
-# 		"hospital_management.tasks.monthly"
-# 	],
+# 	"cron": {
+#         "*/5 * * * *": [
+#             "hospital_management.api.auto_complete_appointments"
+#         ]
+#     }
 # }
 
 # Testing
