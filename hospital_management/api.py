@@ -17,7 +17,9 @@
 
 import frappe
 from frappe import _
-from frappe.utils import nowdate, nowtime
+import frappe
+from frappe.utils import now_datetime, get_datetime
+
 
 
 
@@ -83,25 +85,30 @@ def get_patient_appointments(patient):
 
 
 
+def auto_complete_appointments():
+    now = now_datetime()
 
-# def auto_complete_appointments():
-#     today = nowdate()
-#     current_time = nowtime()
+    appointments = frappe.get_all(
+        "Appointment",
+        filters={
+            "status": "Scheduled",
+            "docstatus": 1
+        },
+        fields=["name", "appointment_date", "to_time"]
+    )
 
-#     appointments = frappe.get_all(
-#         "Appointment",
-#         filters={
-#             "status": "Scheduled",
-#             "appointment_date": ["<=", today]
-#         },
-#         fields=["name", "appointment_date", "to_time"]
-#     )
+    for appt in appointments:
+        end_time = get_datetime(f"{appt.appointment_date} {appt.to_time}")
 
-#     for appt in appointments:
-#         if appt.appointment_date < today or current_time > appt.to_time:
-#             frappe.db.set_value(
-#                 "Appointment",
-#                 appt.name,
-#                 "status",
-#                 "Completed"
-#             )
+        if now > end_time:
+            frappe.db.set_value(
+                "Appointment",
+                appt.name,
+                "status",
+                "Completed",
+                update_modified=False
+            )
+
+    frappe.db.commit()
+
+

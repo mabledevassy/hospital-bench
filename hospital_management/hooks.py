@@ -146,13 +146,13 @@ doc_events = {
 # Scheduled Tasks
 # ---------------
 
-# scheduler_events = {
-# 	"cron": {
-#         "*/5 * * * *": [
-#             "hospital_management.api.auto_complete_appointments"
-#         ]
-#     }
-# }
+scheduler_events = {
+	"cron": {
+        "* * * * *": [
+            "hospital_management.api.auto_complete_appointments"
+        ]
+    }
+}
 
 # Testing
 # -------
